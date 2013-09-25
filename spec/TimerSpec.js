@@ -2,7 +2,7 @@ describe("Timer", function() {
   var timer, startTime, endTime;
 
   beforeEach(function() {
-    timer = new Timer;
+    timer = createTimer();
   });
 
   it("should record the start time when start is called", function() {
@@ -15,7 +15,7 @@ describe("Timer", function() {
     expect(timer.startTime).toBeUndefined();
   });
 
-  it("should record the end time when endTime is called", function() {
+  xit("should record the end time when endTime is called", function() {
     endTime = timer.end();
 
     expect(timer.endTime).toBeDefined();
@@ -25,10 +25,14 @@ describe("Timer", function() {
     expect(timer.endTime).toBeUndefined();
   });
 
-    expect(timer.startTime).toBeUndefined();
+  xit("sets the start time to the current time", function() {
+    spyOn(Date, 'now').andReturn(1234); //stub
+    startTimer = timer.start();
+
+
+    spyOn(Date, 'now').andReturn(1250); //stub
+    expect(timer.duration()).toEqual(16);
   });
-  xit("start call Date.now", function() { });
-  xit("should record the end time when endTime is called", function() { });
   xit("end call Date.now", function() { });
   xit("should be able to calculate time", function() { });
 });
