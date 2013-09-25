@@ -1,16 +1,29 @@
 describe("Timer", function() {
-  var timer, startTime;
+  var timer, startTime, endTime;
+
+  beforeEach(function() {
+    timer = new Timer;
+  });
 
   it("should record the start time when start is called", function() {
-    timer = new Timer;
     startTime = timer.start();
 
     expect(timer.startTime).toBeDefined();
   });
 
+  it("should not have a start time when start is not called", function() {
+    expect(timer.startTime).toBeUndefined();
+  });
+
+  it("should record the end time when endTime is called", function() {
+    endTime = timer.end();
+
+    expect(timer.endTime).toBeDefined();
+  });
 
   it("should not have a start time when start is not called", function() {
-    timer = new Timer;
+    expect(timer.endTime).toBeUndefined();
+  });
 
     expect(timer.startTime).toBeUndefined();
   });
