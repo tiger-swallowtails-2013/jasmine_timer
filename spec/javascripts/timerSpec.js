@@ -1,7 +1,19 @@
 describe("Timer", function() {
+  var timer, startTime;
 
-  it("should record the start time", function() {
+  beforeEach(function() {
     timer = createTimer();
-    // startTime = timer.start();
   });
+
+  it("should record the start time when start is called", function() {
+    startTime = timer.start();
+
+    expect(timer.startTime).toBeDefined();
+  });
+
+  it("should not record the start time when start isn't called", function() {
+    expect(timer.startTime).toBeUndefined();
+  });
+
+
 });
